@@ -1,0 +1,36 @@
+# Name of the workflow
+name: Build & Deploy Spring app
+
+# When to trigger this action
+on:
+  push:
+    branches:
+      - main
+
+# The job that will run for this action
+jobs:
+  build-deploy:
+    name: Build and Deploy Spring Boot CI/CD example
+    # Define the runner, is the machine that where you want or which you want to run these actions
+    runs-on: ubuntu-latest
+    steps:
+        # Create the checkout
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+        # Set up the Java SDK
+      - name: Setup JDK 22
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+        # Run the first step which is the tests
+      - name: Run Unit Tests
+        run: mvn -B test --file pom.xml
+
+        # Now let's clean and package our application
+      - name: Build the application
+        run: |
+          mvn clean
+          mvn -B package --file pom.xml
