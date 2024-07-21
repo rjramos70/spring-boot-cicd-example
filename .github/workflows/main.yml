@@ -27,7 +27,8 @@ jobs:
 
         # Run the first step which is the tests
       - name: Run Unit Tests
-        run: mvn -B test --file pom.xml
+        run: mvn test
+        # run: mvn -B test --file pom.xml
 
         # Now let's clean and package our application
       - name: Build the application
@@ -36,4 +37,3 @@ jobs:
           mvn -B package --file pom.xml
           
 
-      # Test
