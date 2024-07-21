@@ -32,3 +32,14 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Compiled class file
+*.class
+*.lst
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
