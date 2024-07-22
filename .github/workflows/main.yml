@@ -46,7 +46,7 @@ jobs:
 #          dockerfile: Dockerfile
           file: ./Dockerfile
           push: false
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-cicd-example:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-cicd-example:today
 
         # Connect to Docker
       - name: Login to Docker Hub
@@ -62,5 +62,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-cicd-example:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-cicd-example:today
 
